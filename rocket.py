@@ -8,7 +8,6 @@ class Character:
         self.hit_box = self.texture.get_rect()
         self.hit_box.x = x
         self.hit_box.y = y
-        self.sound_step = pygame.mixer.Sound("ponos10.ogg")
 
 
     def render(self, window):
@@ -27,9 +26,14 @@ class Character:
             is_step = True
         if keys[pygame.K_w]:
             self.hit_box.y -= self.speed
+        if keys[pygame.K_RIGHT]:
+            self.hit_box.x += self.speed
             is_step = True
-
-        if is_step == True:
-            self.sound_step.set_volume(1)
-        else:
-            self.sound_step.set_volume(1)
+        if keys[pygame.K_DOWN]:
+            self.hit_box.y += self.speed
+            is_step = True
+        if keys[pygame.K_LEFT]:
+            self.hit_box.x -= self.speed
+            is_step = True
+        if keys[pygame.K_UP]:
+            self.hit_box.y -= self.speed
